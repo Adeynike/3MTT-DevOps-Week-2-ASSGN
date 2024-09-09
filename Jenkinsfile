@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NODEJS_HOME = tool name: 'NodeJS 14.0.0', type: 'NodeJS'
+        NODEJS_HOME = tool 'NodeJS 14.0.0'
         PATH = "${NODEJS_HOME}/bin:${env.PATH}"
     }
 
@@ -29,7 +29,7 @@ pipeline {
             post {
                 always {
                     // Archive test results, assuming Jest is being used
-                    junit '**/test-results/*.xml'
+                    junit '**/test-results/*.xml' // Adjust path as needed
                 }
             }
         }
