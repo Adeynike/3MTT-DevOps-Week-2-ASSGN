@@ -1,0 +1,21 @@
+{
+  "name": "light-and-dark-mode-website",
+  "version": "1.0.0",
+  "description": "A simple website with light and dark mode toggle functionality",
+  "main": "script.js",
+  "scripts": {
+    "start": "http-server .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "light-mode",
+    "dark-mode",
+    "website",
+    "theme-toggle"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
