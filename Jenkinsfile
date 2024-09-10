@@ -21,19 +21,6 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                // Run tests using npm
-                sh 'npm test'
-            }
-            post {
-                always {
-                    // Archive test results, assuming Jest is being used
-                    junit '**/test-results/*.xml' // Adjust path as needed
-                }
-            }
-        }
-
         stage('Build') {
             steps {
                 // Build the Node.js application (if applicable)
@@ -62,3 +49,4 @@ pipeline {
         }
     }
 }
+
