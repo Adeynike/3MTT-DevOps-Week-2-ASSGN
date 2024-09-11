@@ -5,6 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "http-server .",
+    "build": "mkdir -p dist && cp index.html dist/ && npx uglify-js script.js -o dist/script.min.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,6 +17,7 @@
   "author": "Your Name",
   "license": "ISC",
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "uglify-js": "^3.17.4"
   }
 }
