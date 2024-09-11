@@ -24,7 +24,7 @@ pipeline {
         stage('Serve Application') {
             steps {
                 // Start serving the application locally
-                sh 'npx http-server -p 8080' // Serve on port 8080
+                sh 'npx http-server -p 8081' // Serve on port 8080
             }
         }
     }
