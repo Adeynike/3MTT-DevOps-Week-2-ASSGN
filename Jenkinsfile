@@ -9,29 +9,32 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout code from the Git repository
                 git url: 'https://github.com/Adeynike/3MTT-DevOps-Week-2-ASSGN.git', branch: 'main'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                // Install Node.js dependencies
                 sh 'npm install'
             }
         }
 
-        stage('Serve Application') {
+        stage('Build') {
             steps {
-                // Start serving the application locally
-                sh 'npx http-server -p 8081' // Serve on port 8080
+                sh 'npm run build'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
+                // Add deployment steps here, e.g., copying files to a server or running a deployment script.
             }
         }
     }
 
     post {
         always {
-            // Clean up workspace
             deleteDir()
         }
         success {
