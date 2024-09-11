@@ -9,28 +9,18 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout code from the Git repository
                 git url: 'https://github.com/Adeynike/3MTT-DevOps-Week-2-ASSGN.git', branch: 'main'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                // Install Node.js dependencies
                 sh 'npm install'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                // Build the Node.js application (if applicable)
-                sh 'npm run build'
             }
         }
 
         stage('Deploy') {
             steps {
-                // Deploy the application (e.g., copy files, run a script)
                 echo 'Deploying the application...'
             }
         }
@@ -38,7 +28,6 @@ pipeline {
 
     post {
         always {
-            // Clean up workspace
             deleteDir()
         }
         success {
@@ -49,4 +38,3 @@ pipeline {
         }
     }
 }
-
