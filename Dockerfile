@@ -10,6 +10,12 @@ COPY package*.json ./
 # Install the dependencies
 RUN npm install
 
+# Install http-server globally (if needed)
+RUN npm install -g http-server
+
+# Ensure correct file permissions
+RUN chmod -R 755 /app
+
 # Copy the rest of the application files to the working directory
 COPY . .
 
@@ -18,3 +24,4 @@ EXPOSE 3000
 
 # Define the command to run your app
 CMD ["npm", "start"]
+
