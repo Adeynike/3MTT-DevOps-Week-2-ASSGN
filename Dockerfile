@@ -5,23 +5,16 @@ FROM node:18
 WORKDIR /app
 
 # Copy the package.json and package-lock.json files to the working directory
-COPY package*.json ./
+COPY package*.json ./ 
 
 # Install the dependencies
 RUN npm install
 
-# Install http-server globally (if needed)
-RUN npm install -g http-server
-
-# Ensure correct file permissions
-RUN chmod -R 755 /app
-
 # Copy the rest of the application files to the working directory
 COPY . .
 
-# Expose the port your app runs on
-EXPOSE 3000
+# Expose the new port (e.g., 8081 instead of 8080)
+EXPOSE 8081
 
-# Define the command to run your app
-CMD ["npm", "start"]
-
+# Define the command to run your app on port 8081
+CMD ["npx", "http-server", ".", "-p", "8081"]
